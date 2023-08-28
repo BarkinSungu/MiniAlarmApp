@@ -24,6 +24,7 @@
 		DA444F8B2A9C948F00A2BF11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA444F8E2A9C948F00A2BF11 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA444F902A9C948F00A2BF11 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA444F9F2A9CF1B900A2BF11 /* MiniAlarmApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MiniAlarmApp.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +57,7 @@
 		DA444F812A9C948D00A2BF11 /* MiniAlarmApp */ = {
 			isa = PBXGroup;
 			children = (
+				DA444F9F2A9CF1B900A2BF11 /* MiniAlarmApp.entitlements */,
 				DA444F962A9C94BF00A2BF11 /* App */,
 				DA444F972A9C94C600A2BF11 /* Screen */,
 			);
@@ -341,6 +343,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MiniAlarmApp/MiniAlarmApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 29CDDB86MT;
@@ -369,6 +372,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MiniAlarmApp/MiniAlarmApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 29CDDB86MT;
