@@ -23,7 +23,7 @@ class ViewController: UIViewController {
                 let content = UNMutableNotificationContent()
                 content.title = "Wake up!"
                 content.body = "Time to wake up!"
-                content.sound = .default
+                content.sound = UNNotificationSound(named: UNNotificationSoundName(rawValue: "alarm_sound.wav"))
                 
                 let triggerDate = Calendar.current.dateComponents([.hour, .minute], from: date)
                 let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
