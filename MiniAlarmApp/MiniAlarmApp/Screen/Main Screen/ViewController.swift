@@ -45,8 +45,6 @@ class ViewController: UIViewController {
             setAlarmButton.widthAnchor.constraint(equalToConstant: 150),
             setAlarmButton.heightAnchor.constraint(equalToConstant: 50)
         ])
-
-//        scheduleNotification(at: Date().addingTimeInterval(60))
     }
     
     func scheduleNotification(at date: Date) {
@@ -70,7 +68,9 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc func setAlarm(){
-        
+    @objc func setAlarm() {
+        let alarmTime = datePicker.date
+        scheduleNotification(at: alarmTime)
     }
+    
 }
