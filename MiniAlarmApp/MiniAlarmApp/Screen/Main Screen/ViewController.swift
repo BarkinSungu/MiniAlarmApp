@@ -69,15 +69,29 @@ class ViewController: UIViewController {
     }
     
     @objc func setAlarm() {
-        let alarmTime = datePicker.date
+        var alarmTime = datePicker.date
+        alarmTime = adjustSelectedDateIfNeeded(selectedDate: alarmTime)
         scheduleNotification(at: alarmTime)
-        print("alarm Time set for: \(alarmTime)")
+        print("alarm time set for: \(alarmTime)")
 
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: alarmTime)
         let minute = calendar.component(.minute, from: alarmTime)
         self.showAlert(message: "Alarm set for \(hour):\(minute).")
     }
+    
+    //If selected date is earlier now set alarm for tomorrow
+        func adjustSelectedDateIfNeeded(selectedDate: Date) -> Date {
+            let calendar = Calendar.current
+            let currentDate = Date()
+
+            if selectedDate <= currentDate {
+                let adjustedDate = calendar.date(byAdding: .day, value: 1, to: selectedDate)!
+                return adjustedDate
+            }
+            return selectedDate
+        }
+
     
     func showAlert(message: String) {
         let alertController = UIAlertController(title: "Info", message: message, preferredStyle: .alert)
