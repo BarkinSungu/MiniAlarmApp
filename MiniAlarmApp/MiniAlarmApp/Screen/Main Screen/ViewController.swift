@@ -10,11 +10,43 @@ import UserNotifications
 
 class ViewController: UIViewController {
     
+    let datePicker: UIDatePicker = {
+        let picker = UIDatePicker()
+        picker.datePickerMode = .time
+        return picker
+    }()
+        
+    let setAlarmButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Set Alarm", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .blue
+        button.layer.cornerRadius = 25
+        button.addTarget(self, action: #selector(setAlarm), for: .touchUpInside)
+        return button
+    }()
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        scheduleNotification(at: Date().addingTimeInterval(60))
+        view.addSubview(datePicker)
+        view.addSubview(setAlarmButton)
+                
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        setAlarmButton.translatesAutoresizingMaskIntoConstraints = false
+                
+        NSLayoutConstraint.activate([
+            datePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            datePicker.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
+            setAlarmButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            setAlarmButton.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 50),
+            setAlarmButton.widthAnchor.constraint(equalToConstant: 150),
+            setAlarmButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+
+//        scheduleNotification(at: Date().addingTimeInterval(60))
     }
     
     func scheduleNotification(at date: Date) {
@@ -36,5 +68,9 @@ class ViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @objc func setAlarm(){
+        
     }
 }
