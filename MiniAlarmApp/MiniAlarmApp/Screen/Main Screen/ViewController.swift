@@ -71,6 +71,18 @@ class ViewController: UIViewController {
     @objc func setAlarm() {
         let alarmTime = datePicker.date
         scheduleNotification(at: alarmTime)
+        print("alarm Time set for: \(alarmTime)")
+
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: alarmTime)
+        let minute = calendar.component(.minute, from: alarmTime)
+        self.showAlert(message: "Alarm set for \(hour):\(minute).")
+    }
+    
+    func showAlert(message: String) {
+        let alertController = UIAlertController(title: "Info", message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
     }
     
 }
