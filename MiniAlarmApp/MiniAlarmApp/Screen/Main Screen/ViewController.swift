@@ -10,6 +10,7 @@ import UserNotifications
 
 class ViewController: UIViewController {
     
+    //UI elements
     let datePicker: UIDatePicker = {
         let picker = UIDatePicker()
         picker.datePickerMode = .time
@@ -31,6 +32,10 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        setupUI()
+    }
+    
+    func setupUI(){
         view.addSubview(datePicker)
         view.addSubview(setAlarmButton)
                 
@@ -92,7 +97,6 @@ class ViewController: UIViewController {
             return selectedDate
         }
 
-    
     func showAlert(message: String) {
         let alertController = UIAlertController(title: "Info", message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
